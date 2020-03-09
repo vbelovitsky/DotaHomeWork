@@ -77,6 +77,16 @@ namespace DotaLibrary
 		{
 			this.characteristics = characteristics;
 			SetValues();
+			// Если герой создается для продолжения игры
+			try
+			{
+				MaxHealth = double.Parse(characteristics[9]);
+				Health = double.Parse(characteristics[10]);
+			}
+			catch (Exception)
+			{
+
+			}
 		}
 
 		private void SetValues()

@@ -1,11 +1,6 @@
 ﻿using System;
+using System.Xml.Linq;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DotaLibrary;
 using static DotaLibrary.ParseErrors;
@@ -123,6 +118,49 @@ namespace Dota2
 
 		}
 
+		private void continueGameButton_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				ReadXMLFile();
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Файл сохранения не найден или поврежден.");
+			}
+		}
 
+		private void ReadXMLFile()
+		{
+			XDocument doc = XDocument.Load(DotaSavedGamePath);
+			XElement game = doc.Element("game");
+			XElement playerHero = game.Element("playerHero");
+			XElement enemyHero = game.Element("enemyHero");
+
+			Hero player = ReadHero(playerHero);
+			Hero enemy = ReadHero(enemyHero);
+			int round = int.Parse(game.Element("round").Value);
+			string history = game.Element("history").Value;
+
+			GameForm gameForm = new GameForm(player, enemy, round, history);
+			gameForm.Show();
+		}
+
+		private Hero ReadHero(XElement hero)
+		{
+			List<string> characteristics = new List<string>();
+			characteristics.Add(hero.Element("name").Value);
+			characteristics.Add(hero.Element("type").Value);
+			characteristics.Add(hero.Element("baseStrength").Value);
+			characteristics.Add(hero.Element("baseAgility").Value);
+			characteristics.Add(hero.Element("baseIntelligence").Value);
+			characteristics.Add(hero.Element("moveSpeed").Value);
+			characteristics.Add(hero.Element("baseArmor").Value);
+			characteristics.Add(hero.Element("minDamage").Value);
+			characteristics.Add(hero.Element("regeneration").Value);
+			characteristics.Add(hero.Element("health").Value);
+			characteristics.Add(hero.Element("maxHealth").Value);
+			return new Hero(characteristics.ToArray());
+		}									 
 	}
 }

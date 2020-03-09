@@ -11,6 +11,8 @@ namespace DotaLibrary
 	
 		public static string DotaTablePath { get; set; } = "../../../Dota2.csv";
 		public static string DotaSavedTablePath { get; set; } = "../../../Dota2_CustomTable.csv";
+
+		public static string DotaSavedGamePath { get; set; } = "../../../SavedGame.xml";
 		
 	}
 }

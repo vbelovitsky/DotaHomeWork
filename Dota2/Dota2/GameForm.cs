@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Linq;
 using System.Windows.Forms;
 using DotaLibrary;
+using static DotaLibrary.DotaFilesPaths;
 
 namespace Dota2
 {
@@ -44,11 +39,12 @@ namespace Dota2
 		private void GameForm_Load(object sender, EventArgs e)
 		{
 			roundTextBox.Text = $"Раунд {round}";
-			if(tableForm == null)
+			historyTextBox.AppendText(historyText);
+			if (tableForm == null)
 			{
 				escapeTextBox.Hide();
 			}
-	
+
 
 			UpdateHeroInfo(player, heroNameTextBox1, heroList1);
 			UpdateHeroInfo(enemy, heroNameTextBox2, heroList2);
@@ -85,7 +81,7 @@ namespace Dota2
 			switch (e.KeyCode)
 			{
 				case Keys.Q:
-					if(!gameEnded)
+					if (!gameEnded)
 						MakeRound(Attack);
 					break;
 				case Keys.W:
@@ -97,7 +93,7 @@ namespace Dota2
 						MakeRound(Escape);
 					break;
 				case Keys.Escape:
-					if(tableForm != null)
+					if (tableForm != null)
 					{
 						Hide();
 						tableForm.Show();
@@ -106,6 +102,10 @@ namespace Dota2
 			}
 		}
 
+		/// <summary>
+		/// Игровой раунд
+		/// </summary>
+		/// <param name="actionIndex"></param>
 		private void MakeRound(int actionIndex)
 		{
 			// Умный ход бота
@@ -117,18 +117,28 @@ namespace Dota2
 			// Обновление истории битвы
 			historyTextBox.AppendText(Environment.NewLine + text);
 
-
 			CheckGameEnd();
-			
 
-			// Save to xml
+			if (!gameEnded)
+			{
+				SaveToXML();
+			}
 
-			
 			round++;
 			roundTextBox.Text = $"Раунд {round}";
+
+			if (gameEnded && tableForm == null)
+			{
+				MessageBox.Show("Сохраненная игра завершена.\nДля начала новой игры перейдите в главное меню.");
+			}
 		}
 
-
+		/// <summary>
+		/// Проводит боевое действие между двумя игроками
+		/// </summary>
+		/// <param name="playerAction"></param>
+		/// <param name="enemyAction"></param>
+		/// <returns></returns>
 		private string BattleAction(int playerAction, int enemyAction)
 		{
 			string text = $"Раунд {round}:" + Environment.NewLine;
@@ -140,10 +150,10 @@ namespace Dota2
 				if (rnd.Next(0, 10) < 2)
 				{
 					player.Health += 5 * player.Regeneration;
-					text += Environment.NewLine + (player.Health == player.MaxHealth ? $"{player.Name} восстановил здоровье до максимума":
+					text += Environment.NewLine + (player.Health == player.MaxHealth ? $"{player.Name} восстановил здоровье до максимума" :
 						$"{player.Name} восстановил {5 * player.Regeneration} здоровья.");
 				}
-				if(rnd.Next(0, 10) < 2)
+				if (rnd.Next(0, 10) < 2)
 				{
 					enemy.Health += 5 * enemy.Regeneration;
 					text += Environment.NewLine + (enemy.Health == enemy.MaxHealth ? $"{enemy.Name} восстановил здоровье до максимума" :
@@ -165,7 +175,7 @@ namespace Dota2
 				}
 			}
 			// Оба защищаются
-			else if(playerAction == Defence && enemyAction == Defence)
+			else if (playerAction == Defence && enemyAction == Defence)
 			{
 				string[] defenceTexts = { "Противники столкнулись щитами, и ничего не произошло.",
 										"Оба воина встали в защитную стойку и стали ждать...",
@@ -179,9 +189,9 @@ namespace Dota2
 				double playerAttack = player.MinDamage * player.BaseStrength / 10 + player.BaseArmor * player.BaseAgility / 10;
 				double enemyAttack = enemy.MinDamage * enemy.BaseStrength / 10 + enemy.BaseArmor * enemy.BaseAgility / 10;
 
-				if(playerAttack > enemyAttack + 10)
+				if (playerAttack > enemyAttack + 10)
 				{
-					
+
 
 					double damage = player.MinDamage * player.BaseStrength / 20;
 					enemy.Health -= damage;
@@ -226,9 +236,12 @@ namespace Dota2
 			return text;
 		}
 
+		/// <summary>
+		/// Проверяет, окончилась ли игра.
+		/// </summary>
 		private void CheckGameEnd()
 		{
-			if (player.Health == 0 || enemy.Health == 0)
+			if ((player.Health == 0) ^ (enemy.Health == 0))
 			{
 				string looser = string.Empty;
 				string winner = string.Empty;
@@ -248,9 +261,50 @@ namespace Dota2
 					$"{looser} был повержен ударом {winner}. Битва окончена.",
 					$"{winner} добил мощным ударом {looser}."};
 				historyTextBox.AppendText(Environment.NewLine + endTexts[rnd.Next(0, endTexts.Length)]);
-
-
 			}
+			else if (player.Health == 0 && enemy.Health == 0)
+			{
+				gameEnded = true;
+				historyTextBox.AppendText(Environment.NewLine + $"Силы оказались равны. {player.Name} и {enemy.Name} истекли кровью.");
+			}
+		}
+
+		/// <summary>
+		/// Сохраняет текущую игру в файл XML
+		/// </summary>
+		private void SaveToXML()
+		{
+			XDocument doc = new XDocument(new XElement("game",
+												new XElement("playerHero",
+													new XElement("name", player.Name),
+													new XElement("type", player.Type),
+													new XElement("baseStrength", player.BaseStrength),
+													new XElement("baseAgility", player.BaseAgility),
+													new XElement("baseIntelligence", player.BaseIntelligence),
+													new XElement("moveSpeed", player.MoveSpeed),
+													new XElement("baseArmor", $"{player.BaseArmor:F3}"),
+													new XElement("minDamage", player.MinDamage),
+													new XElement("regeneration", $"{player.Regeneration:F3}"),
+													new XElement("health", $"{player.Health:F3}"),
+													new XElement("maxHealth", $"{player.MaxHealth:F3}")),
+												new XElement("enemyHero",
+													new XElement("name", enemy.Name),
+													new XElement("type", enemy.Type),
+													new XElement("baseStrength", enemy.BaseStrength),
+													new XElement("baseAgility", enemy.BaseAgility),
+													new XElement("baseIntelligence", enemy.BaseIntelligence),
+													new XElement("moveSpeed", enemy.MoveSpeed),
+													new XElement("baseArmor", $"{enemy.BaseArmor:F3}"),
+													new XElement("minDamage", enemy.MinDamage),
+													new XElement("regeneration", $"{enemy.Regeneration:F3}"),
+													new XElement("health", $"{enemy.Health:F3}"),
+													new XElement("maxHealth", $"{enemy.MaxHealth:F3}")),
+												new XElement("round", round),
+												new XElement("history", historyTextBox.Text)
+											)
+										  );
+
+			doc.Save(DotaSavedGamePath);
 		}
 
 	}

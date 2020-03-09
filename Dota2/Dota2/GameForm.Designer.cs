@@ -98,7 +98,6 @@
 			this.historyTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.historyTextBox.Size = new System.Drawing.Size(284, 377);
 			this.historyTextBox.TabIndex = 8;
-			this.historyTextBox.Text = "История битвы.";
 			// 
 			// textBox1
 			// 

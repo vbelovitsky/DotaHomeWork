@@ -250,7 +250,7 @@ namespace Dota2
 				Hero playerHero = CreateHero(selectedHeroIndex);
 				Hero enemyHero = CreateHero(enemyHeroIndex);
 
-				GameForm gameForm = new GameForm(playerHero, enemyHero, 1, "", this);
+				GameForm gameForm = new GameForm(playerHero, enemyHero, 1, "История битвы.", this);
 				gameForm.Show();
 				Hide();
 			}

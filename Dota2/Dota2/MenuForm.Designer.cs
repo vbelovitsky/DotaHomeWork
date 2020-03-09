@@ -28,22 +28,24 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
 			this.continueGameButton = new System.Windows.Forms.Button();
 			this.newGameButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// continueGameButton
 			// 
-			this.continueGameButton.Location = new System.Drawing.Point(13, 252);
+			this.continueGameButton.Location = new System.Drawing.Point(12, 226);
 			this.continueGameButton.Name = "continueGameButton";
 			this.continueGameButton.Size = new System.Drawing.Size(229, 65);
 			this.continueGameButton.TabIndex = 1;
 			this.continueGameButton.Text = "Продолжить";
 			this.continueGameButton.UseVisualStyleBackColor = true;
+			this.continueGameButton.Click += new System.EventHandler(this.continueGameButton_Click);
 			// 
 			// newGameButton
 			// 
-			this.newGameButton.Location = new System.Drawing.Point(13, 121);
+			this.newGameButton.Location = new System.Drawing.Point(12, 89);
 			this.newGameButton.Name = "newGameButton";
 			this.newGameButton.Size = new System.Drawing.Size(229, 65);
 			this.newGameButton.TabIndex = 2;
@@ -55,7 +57,8 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(878, 444);
+			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+			this.ClientSize = new System.Drawing.Size(878, 395);
 			this.Controls.Add(this.newGameButton);
 			this.Controls.Add(this.continueGameButton);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

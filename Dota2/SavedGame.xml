@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<game>
+  <playerHero>
+    <name>Bane</name>
+    <type>2</type>
+    <baseStrength>23</baseStrength>
+    <baseAgility>23</baseAgility>
+    <baseIntelligence>23</baseIntelligence>
+    <moveSpeed>310</moveSpeed>
+    <baseArmor>4,290</baseArmor>
+    <minDamage>60</minDamage>
+    <regeneration>1,500</regeneration>
+    <health>667,000</health>
+    <maxHealth>667,000</maxHealth>
+  </playerHero>
+  <enemyHero>
+    <name>Enigma</name>
+    <type>2</type>
+    <baseStrength>17</baseStrength>
+    <baseAgility>14</baseAgility>
+    <baseIntelligence>20</baseIntelligence>
+    <moveSpeed>300</moveSpeed>
+    <baseArmor>4,000</baseArmor>
+    <minDamage>42</minDamage>
+    <regeneration>1,500</regeneration>
+    <health>64,357</health>
+    <maxHealth>468,838</maxHealth>
+  </enemyHero>
+  <round>11</round>
+  <history>История битвы.
+Раунд 1:
+Отступая, Enigma потерял 1% максимального здоровья.
+Раунд 2:
+Отступая, Enigma потерял 1% максимального здоровья.
+Раунд 3:
+Отступая, Enigma потерял 1% максимального здоровья.
+Раунд 4:
+Bane нанес Enigma 69 урона.
+Раунд 5:
+Отступая, Enigma потерял 1% максимального здоровья.
+Раунд 6:
+Bane нанес Enigma 69 урона.
+Раунд 7:
+Bane нанес Enigma 69 урона.
+Раунд 8:
+Отступая, Enigma потерял 1% максимального здоровья.
+Раунд 9:
+Bane нанес Enigma 69 урона.
+Раунд 10:
+Bane нанес Enigma 69 урона.
+Раунд 11:
+Bane нанес Enigma 69 урона.</history>
+</game>
