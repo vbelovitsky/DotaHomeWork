@@ -1,0 +1,15 @@
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\bin\Debug\Dota2.exe.config
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\bin\Debug\Dota2.exe
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\bin\Debug\Dota2.pdb
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\bin\Debug\DotaLibrary.dll
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\bin\Debug\DotaLibrary.pdb
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\obj\Debug\Dota2.csprojAssemblyReference.cache
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\obj\Debug\Dota2.Properties.Resources.resources
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\obj\Debug\Dota2.csproj.GenerateResource.cache
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\obj\Debug\Dota2.csproj.CoreCompileInputs.cache
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\obj\Debug\Dota2.csproj.CopyComplete
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\obj\Debug\Dota2.exe
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\obj\Debug\Dota2.pdb
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\obj\Debug\Dota2.TableForm.resources
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\obj\Debug\Dota2.MenuForm.resources
+C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\Dota2\obj\Debug\Dota2.GameForm.resources
