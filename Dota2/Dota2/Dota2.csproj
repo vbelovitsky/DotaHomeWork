@@ -84,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -103,6 +104,18 @@
       <Project>{6c29f9d8-b615-48cf-99ba-9e66b9f26553}</Project>
       <Name>DotaLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PudgeVSJugWallPaper.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pudgeVsJug.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AgeOfWarSound.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AgeOfWarSound.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

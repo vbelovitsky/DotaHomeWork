@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Media;
+using System.IO;
+using System.Drawing;
 using System.Xml.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -11,7 +14,7 @@ namespace Dota2
 	public partial class MenuForm : Form
 	{
 
-		bool tableError;
+		ParseErrors tableError;
 
 		public MenuForm()
 		{
@@ -21,7 +24,8 @@ namespace Dota2
 
 		private void MenuForm_Load(object sender, EventArgs e)
 		{
-
+			LoadDisign();
+			
 		}
 
 
@@ -57,15 +61,18 @@ namespace Dota2
 			bool openedOrCancelled = false;
 			char separator = ';';
 
+			string path = GetTableSavedPath();
+
 			do
 			{
-				List<string[]> characteristics = DotaParser.Read(DotaTablePath, separator);
+				List<string[]> characteristics = DotaParser.Read(path, separator);
 
-				if (!tableError)
+				if (tableError == Success)
 				{
 					TableForm tableForm = new TableForm(characteristics);
 					tableForm.Show();
 
+					SetTableSavedPath(path);
 					openedOrCancelled = true;
 				}
 				else
@@ -81,7 +88,7 @@ namespace Dota2
 
 					if (openFileDialog1.ShowDialog() == DialogResult.OK)
 					{
-						DotaTablePath = openFileDialog1.FileName;
+						path = openFileDialog1.FileName;
 					}
 					else
 					{
@@ -94,6 +101,7 @@ namespace Dota2
 
 		private void ErrorHandler(ParseErrors error)
 		{
+			tableError = error;
 			switch (error)
 			{
 				case ValueError:
@@ -109,15 +117,14 @@ namespace Dota2
 					MessageBox.Show("Произошла ошибка при работе с таблицей.");
 					break;
 			}
-			tableError = true;
-
-			if (error == Success)
-			{
-				tableError = false;
-			}
 
 		}
 
+		/// <summary>
+		/// Нажатие на кнопку продолжения игры
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void continueGameButton_Click(object sender, EventArgs e)
 		{
 			try
@@ -130,6 +137,9 @@ namespace Dota2
 			}
 		}
 
+		/// <summary>
+		/// Считывает XML файл сохраненной игры
+		/// </summary>
 		private void ReadXMLFile()
 		{
 			XDocument doc = XDocument.Load(DotaSavedGamePath);
@@ -146,6 +156,11 @@ namespace Dota2
 			gameForm.Show();
 		}
 
+		/// <summary>
+		/// Считывает характеристики героя из XML файла
+		/// </summary>
+		/// <param name="hero"></param>
+		/// <returns></returns>
 		private Hero ReadHero(XElement hero)
 		{
 			List<string> characteristics = new List<string>();
@@ -161,6 +176,69 @@ namespace Dota2
 			characteristics.Add(hero.Element("health").Value);
 			characteristics.Add(hero.Element("maxHealth").Value);
 			return new Hero(characteristics.ToArray());
-		}									 
+		}
+
+		/// <summary>
+		/// Достает последний путь до последней открытой таблицы
+		/// </summary>
+		/// <returns></returns>
+		private string GetTableSavedPath()
+		{
+			string path = null;
+			if (File.Exists(TableSavedPath))
+			{
+				try
+				{
+					path = File.ReadAllText(TableSavedPath);
+				}
+				catch (IOException)
+				{
+
+				}
+				catch (Exception)
+				{
+
+				}
+			}
+			return path;
+		}
+
+		/// <summary>
+		/// Сохраняет путь до последней открытой таблицы
+		/// </summary>
+		/// <param name="path"></param>
+		private void SetTableSavedPath(string path)
+		{
+			try
+			{
+				File.WriteAllText(TableSavedPath, path);
+			}
+			catch (IOException)
+			{
+
+			}
+			catch (Exception)
+			{
+
+			}
+		}
+
+
+		private void LoadDisign()
+		{
+			try
+			{
+				backgroundGIFBox.Image = Properties.Resources.PudgeVSJugWallpaper;
+				backgroundGIFBox.SizeMode = PictureBoxSizeMode.Zoom;
+			}
+			catch (Exception) { }
+
+			try
+			{
+				SoundPlayer soundPlayer = new SoundPlayer("../../Resources/AgeOfWarSound.wav");
+				soundPlayer.Play();
+			}
+			catch (Exception) { }
+		}
 	}
 }

@@ -28,9 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
 			this.continueGameButton = new System.Windows.Forms.Button();
 			this.newGameButton = new System.Windows.Forms.Button();
+			this.backgroundGIFBox = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.backgroundGIFBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// continueGameButton
@@ -45,7 +46,7 @@
 			// 
 			// newGameButton
 			// 
-			this.newGameButton.Location = new System.Drawing.Point(12, 89);
+			this.newGameButton.Location = new System.Drawing.Point(12, 102);
 			this.newGameButton.Name = "newGameButton";
 			this.newGameButton.Size = new System.Drawing.Size(229, 65);
 			this.newGameButton.TabIndex = 2;
@@ -53,20 +54,31 @@
 			this.newGameButton.UseVisualStyleBackColor = true;
 			this.newGameButton.Click += new System.EventHandler(this.newGameButton_Click);
 			// 
+			// backgroundGIFBox
+			// 
+			this.backgroundGIFBox.ErrorImage = null;
+			this.backgroundGIFBox.InitialImage = null;
+			this.backgroundGIFBox.Location = new System.Drawing.Point(-11, 1);
+			this.backgroundGIFBox.Name = "backgroundGIFBox";
+			this.backgroundGIFBox.Size = new System.Drawing.Size(900, 400);
+			this.backgroundGIFBox.TabIndex = 3;
+			this.backgroundGIFBox.TabStop = false;
+			// 
 			// MenuForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-			this.ClientSize = new System.Drawing.Size(878, 395);
+			this.ClientSize = new System.Drawing.Size(878, 394);
 			this.Controls.Add(this.newGameButton);
 			this.Controls.Add(this.continueGameButton);
+			this.Controls.Add(this.backgroundGIFBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "MenuForm";
 			this.Text = "Dota 2 Refunded";
 			this.Load += new System.EventHandler(this.MenuForm_Load);
+			((System.ComponentModel.ISupportInitialize)(this.backgroundGIFBox)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -74,5 +86,6 @@
 		#endregion
 		private System.Windows.Forms.Button continueGameButton;
 		private System.Windows.Forms.Button newGameButton;
+		private System.Windows.Forms.PictureBox backgroundGIFBox;
 	}
 }
