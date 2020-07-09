@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Data;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DotaLibrary.DotaFilesPaths;
 
 namespace Dota2
 {
+	/// <summary>
+	/// Класс расширение
+	/// </summary>
 	internal static class DataGridViewExtension
 	{
+		/// <summary>
+		/// Сохраняет данные из DataGridView в CSV файл.
+		/// </summary>
+		/// <param name="dataGridView"></param>
 		public static void SaveTableToCSV(this DataGridView dataGridView)
 		{
 			try

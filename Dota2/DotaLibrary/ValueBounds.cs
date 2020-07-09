@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DotaLibrary
 {
+	/// <summary>
+	/// Границы возможных значений характеристик героя
+	/// </summary>
 	public static class ValueBounds
 	{
 		public static int NameMinLength { get; } = 1;

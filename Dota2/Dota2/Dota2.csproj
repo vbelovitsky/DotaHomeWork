@@ -52,6 +52,7 @@
     <Compile Include="GameForm.Designer.cs">
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeroIcons.cs" />
     <Compile Include="TableForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,13 +110,349 @@
     <None Include="Resources\PudgeVSJugWallPaper.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pudgeVsJug.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AgeOfWarSound.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\AgeOfWarSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Abaddon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AncientApparition.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AntiMage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Axe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bane.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Batrider.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BeastMaster.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bloodseeker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BountyHunter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bristleback.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Broodmother.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CentaurWarrunner.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChaosKnight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clinkz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clockwerk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Darkseer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dazzle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeathProphet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Disruptor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Doom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DragonKnight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drowranger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Earthshaker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EarthSpirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ElderTitan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EmberSpirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enchantress.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enigma.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FacelessVoid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gyrocopter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Huskar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_part_018.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_part_019.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_part_023.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_part_044.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_part_050.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_part_052.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_part_063.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_part_069.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_part_071.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_part_089.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_part_093.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Invoker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Juggernaut.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KeeperOfLight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kunkka.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LegionCommander.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lich.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lifestealer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lina.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoneDruid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Luna.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lycan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Magnus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Medusa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meepo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mirana.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Morphling.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NagaSiren.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NaturesProphet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Necrophos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NightStalker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NyxAssasin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OgreMagi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Omniknight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oracle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PhantomAssasin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Puck.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pudge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pugna.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QueenOfPain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Razor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Riki.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rubick.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SandKing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShadowDemon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShadowFiend.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShadowShaman.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Silencer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SkywrathMage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slardar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slark.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sniper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spectre.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SpiritBreaker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StormSpirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sven.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Techies.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TemplarAssasin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terrorblade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tidehunter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Timbersaw.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tinker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tiny.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TreantProtector.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrollWarlord.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Underlord.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ursa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VengefulSpirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Venomancer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Viper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Visage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Warlock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Windranger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WitchDoctor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WrathKing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zeus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DefaultIcon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DotaWallpaper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DotaWallpaper_.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TableWallpaper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TableWallpaper1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

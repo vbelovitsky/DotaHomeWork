@@ -38,23 +38,25 @@
 			this.heroList1 = new System.Windows.Forms.ListBox();
 			this.heroList2 = new System.Windows.Forms.ListBox();
 			this.escapeTextBox = new System.Windows.Forms.TextBox();
+			this.backgroundBox = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.avatarBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.avatarBox2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.backgroundBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// avatarBox1
 			// 
-			this.avatarBox1.Location = new System.Drawing.Point(98, 43);
+			this.avatarBox1.Location = new System.Drawing.Point(98, 12);
 			this.avatarBox1.Name = "avatarBox1";
-			this.avatarBox1.Size = new System.Drawing.Size(136, 128);
+			this.avatarBox1.Size = new System.Drawing.Size(136, 159);
 			this.avatarBox1.TabIndex = 0;
 			this.avatarBox1.TabStop = false;
 			// 
 			// avatarBox2
 			// 
-			this.avatarBox2.Location = new System.Drawing.Point(737, 43);
+			this.avatarBox2.Location = new System.Drawing.Point(737, 12);
 			this.avatarBox2.Name = "avatarBox2";
-			this.avatarBox2.Size = new System.Drawing.Size(136, 128);
+			this.avatarBox2.Size = new System.Drawing.Size(136, 159);
 			this.avatarBox2.TabIndex = 1;
 			this.avatarBox2.TabStop = false;
 			// 
@@ -139,6 +141,15 @@
 			this.escapeTextBox.Text = "Esc - вернуться к таблице.";
 			this.escapeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
+			// backgroundBox
+			// 
+			this.backgroundBox.Location = new System.Drawing.Point(-11, -2);
+			this.backgroundBox.Name = "backgroundBox";
+			this.backgroundBox.Size = new System.Drawing.Size(1000, 560);
+			this.backgroundBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.backgroundBox.TabIndex = 13;
+			this.backgroundBox.TabStop = false;
+			// 
 			// GameForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -154,15 +165,17 @@
 			this.Controls.Add(this.heroNameTextBox1);
 			this.Controls.Add(this.avatarBox2);
 			this.Controls.Add(this.avatarBox1);
+			this.Controls.Add(this.backgroundBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.KeyPreview = true;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "GameForm";
-			this.Text = "GameForm";
+			this.Text = "Игра";
 			this.Load += new System.EventHandler(this.GameForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.avatarBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.avatarBox2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.backgroundBox)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -180,5 +193,6 @@
 		private System.Windows.Forms.ListBox heroList1;
 		private System.Windows.Forms.ListBox heroList2;
 		private System.Windows.Forms.TextBox escapeTextBox;
+		private System.Windows.Forms.PictureBox backgroundBox;
 	}
 }

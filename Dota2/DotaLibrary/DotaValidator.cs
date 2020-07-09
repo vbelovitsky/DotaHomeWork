@@ -8,10 +8,17 @@ using static DotaLibrary.ValueBounds;
 
 namespace DotaLibrary
 {
-
+	/// <summary>
+	/// Класс для валидации значения характеристики героя
+	/// </summary>
 	public static class DotaValidator
 	{
-
+		/// <summary>
+		/// Валидирует значение характеристики героя
+		/// </summary>
+		/// <param name="value">значение</param>
+		/// <param name="colIndex">номер столбца (характеристики)</param>
+		/// <returns>null, если валидация успешна, сообщение об ошибке, если есть ошибка</returns>
 		public static string Validate(string value, int colIndex)
 		{
 			string message = null;

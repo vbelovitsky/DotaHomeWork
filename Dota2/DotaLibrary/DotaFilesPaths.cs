@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DotaLibrary
 {
+	/// <summary>
+	/// Пути до игровых файлов по умолчанию
+	/// </summary>
 	public static class DotaFilesPaths
 	{
 	
@@ -14,7 +17,7 @@ namespace DotaLibrary
 
 		public static string TableSavedPath { get; set; } = "TableSavedPath.txt";
 
-		public static string DotaSavedGamePath { get; set; } = "../../../SavedGame.xml";
+		public static string DotaSavedGamePath { get; set; } = "SavedGame.xml";
 		
 	}
 }

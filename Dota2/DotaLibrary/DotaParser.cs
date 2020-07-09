@@ -18,7 +18,6 @@ namespace DotaLibrary
 	{
 
 		public static event ParseFailure onParseFailed;
-
 		
 		static int colCount = 9;
 
@@ -35,6 +34,10 @@ namespace DotaLibrary
 			try
 			{
 
+				if(fileName == null)
+				{
+					throw new IOException();
+				}
 				using (StreamReader reader = new StreamReader(fileName))
 				{
 					int rowIndex = 0;

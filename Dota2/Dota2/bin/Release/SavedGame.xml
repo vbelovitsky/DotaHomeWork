@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<game>
+  <playerHero>
+    <name>Wraith King</name>
+    <type>0</type>
+    <baseStrength>22</baseStrength>
+    <baseAgility>18</baseAgility>
+    <baseIntelligence>18</baseIntelligence>
+    <moveSpeed>300</moveSpeed>
+    <baseArmor>2,570</baseArmor>
+    <minDamage>61</minDamage>
+    <regeneration>1,500</regeneration>
+    <health>631,620</health>
+    <maxHealth>631,620</maxHealth>
+    <index>97</index>
+  </playerHero>
+  <enemyHero>
+    <name>Drow Ranger</name>
+    <type>1</type>
+    <baseStrength>17</baseStrength>
+    <baseAgility>26</baseAgility>
+    <baseIntelligence>15</baseIntelligence>
+    <moveSpeed>285</moveSpeed>
+    <baseArmor>0,710</baseArmor>
+    <minDamage>40</minDamage>
+    <regeneration>1,500</regeneration>
+    <health>24,000</health>
+    <maxHealth>459,508</maxHealth>
+    <index>22</index>
+  </enemyHero>
+  <round>21</round>
+  <history>История битвы.
+Раунд 1:
+Wraith King нанес Drow Ranger 67 урона.
+Раунд 2:
+Оба воина встали в защитную стойку и стали ждать...
+Раунд 3:
+Противники столкнулись щитами, и ничего не произошло.
+Раунд 4:
+Wraith King нанес Drow Ranger 67 урона.
+Раунд 5:
+Отступая, Drow Ranger потерял 1% максимального здоровья.
+Раунд 6:
+Отступая, Drow Ranger потерял 1% максимального здоровья.
+Раунд 7:
+Противники решили передохнуть и заняли оборонительную позицию.
+Раунд 8:
+Оба противника решили отступить.
+Раунд 9:
+Отступая, Wraith King потерял 1% максимального здоровья.
+Раунд 10:
+Wraith King нанес Drow Ranger 67 урона.
+Раунд 11:
+Wraith King нанес Drow Ranger 67 урона.
+Раунд 12:
+Wraith King нанес Drow Ranger 67 урона.
+Раунд 13:
+Wraith King нанес Drow Ranger 67 урона.
+Раунд 14:
+Отступая, Drow Ranger потерял 1% максимального здоровья.
+Раунд 15:
+Противники столкнулись щитами, и ничего не произошло.
+Раунд 16:
+Отступая, Drow Ranger потерял 1% максимального здоровья.
+Раунд 17:
+Wraith King нанес Drow Ranger 67 урона.
+Раунд 18:
+Отступая, Drow Ranger потерял 1% максимального здоровья.
+Раунд 19:
+Отступая, Drow Ranger потерял 1% максимального здоровья.
+Раунд 20:
+Отступая, Drow Ranger потерял 1% максимального здоровья.
+Раунд 21:
+Противники столкнулись щитами, и ничего не произошло.</history>
+</game>

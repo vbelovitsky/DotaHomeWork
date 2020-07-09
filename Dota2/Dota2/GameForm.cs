@@ -6,6 +6,9 @@ using static DotaLibrary.DotaFilesPaths;
 
 namespace Dota2
 {
+	/// <summary>
+	/// Форма с процессом сражения
+	/// </summary>
 	public partial class GameForm : Form
 	{
 
@@ -45,6 +48,14 @@ namespace Dota2
 				escapeTextBox.Hide();
 			}
 
+			try
+			{
+				backgroundBox.Image = Properties.Resources.DotaWallpaper;
+			}
+			catch (Exception){}
+
+			SetIcon(avatarBox1, player.Index);
+			SetIcon(avatarBox2, enemy.Index);
 
 			UpdateHeroInfo(player, heroNameTextBox1, heroList1);
 			UpdateHeroInfo(enemy, heroNameTextBox2, heroList2);
@@ -73,7 +84,35 @@ namespace Dota2
 			listView.Items.Add($"Регенерация: {hero.Regeneration:F3}");
 		}
 
+		/// <summary>
+		/// Устанавливает иконку героя
+		/// </summary>
+		/// <param name="pictureBox"></param>
+		/// <param name="index"></param>
+		private void SetIcon(PictureBox pictureBox, int index)
+		{
+			pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+			try
+			{
+				pictureBox.Image = HeroIcons.GetIcon(index);
+			}
+			catch (Exception)
+			{
+				try
+				{
+					pictureBox.Image = Properties.Resources.DefaultIcon;
+				}
+				catch (Exception)
+				{
 
+				}
+			}
+		}
+
+		/// <summary>
+		/// Обработчик нажатия на клавиши
+		/// </summary>
+		/// <param name="e"></param>
 		protected override void OnKeyDown(KeyEventArgs e)
 		{
 			base.OnKeyDown(e);
@@ -105,7 +144,7 @@ namespace Dota2
 		/// <summary>
 		/// Игровой раунд
 		/// </summary>
-		/// <param name="actionIndex"></param>
+		/// <param name="actionIndex">Действие, совершенное игроком</param>
 		private void MakeRound(int actionIndex)
 		{
 			// Умный ход бота
@@ -121,7 +160,15 @@ namespace Dota2
 
 			if (!gameEnded)
 			{
-				SaveToXML();
+				try
+				{
+					SaveToXML();
+				}
+				catch (Exception){}
+			}
+			else
+			{
+				escapeTextBox.Text = "Esc - начать заново.";
 			}
 
 			round++;
@@ -286,7 +333,8 @@ namespace Dota2
 													new XElement("minDamage", player.MinDamage),
 													new XElement("regeneration", $"{player.Regeneration:F3}"),
 													new XElement("health", $"{player.Health:F3}"),
-													new XElement("maxHealth", $"{player.MaxHealth:F3}")),
+													new XElement("maxHealth", $"{player.MaxHealth:F3}"),
+													new XElement("index", player.Index)),
 												new XElement("enemyHero",
 													new XElement("name", enemy.Name),
 													new XElement("type", enemy.Type),
@@ -298,7 +346,8 @@ namespace Dota2
 													new XElement("minDamage", enemy.MinDamage),
 													new XElement("regeneration", $"{enemy.Regeneration:F3}"),
 													new XElement("health", $"{enemy.Health:F3}"),
-													new XElement("maxHealth", $"{enemy.MaxHealth:F3}")),
+													new XElement("maxHealth", $"{enemy.MaxHealth:F3}"),
+													new XElement("index", enemy.Index)),
 												new XElement("round", round),
 												new XElement("history", historyTextBox.Text)
 											)

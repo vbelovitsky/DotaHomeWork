@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Media;
 using System.IO;
-using System.Drawing;
 using System.Xml.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -11,6 +10,9 @@ using static DotaLibrary.DotaFilesPaths;
 
 namespace Dota2
 {
+	/// <summary>
+	/// Форма меню
+	/// </summary>
 	public partial class MenuForm : Form
 	{
 
@@ -28,13 +30,10 @@ namespace Dota2
 			
 		}
 
-
 		private void newGameButton_Click(object sender, EventArgs e)
 		{
 			RunTableForm();
 		}
-
-
 
 		/// <summary>
 		/// Запускает форму с таблицей. Одновременно может быть открыта только одна такая форма.
@@ -54,7 +53,7 @@ namespace Dota2
 		}
 
 		/// <summary>
-		/// Открывает таблицу по пути по умолчанию, в случае ошибки предлагает выбрать расположение файла.
+		/// Открывает таблицу по сохраненному пути, в случае ошибки предлагает выбрать расположение файла.
 		/// </summary>
 		private void OpenTable()
 		{
@@ -77,11 +76,9 @@ namespace Dota2
 				}
 				else
 				{
-					
-
 					OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-					openFileDialog1.InitialDirectory = "c:\\";
+					openFileDialog1.InitialDirectory = "../../../" + AppDomain.CurrentDomain.BaseDirectory;
 					openFileDialog1.Filter = "CSV files (*.csv)|*.csv";
 					openFileDialog1.FilterIndex = 0;
 					openFileDialog1.RestoreDirectory = true;
@@ -99,6 +96,10 @@ namespace Dota2
 			while (!openedOrCancelled);
 		}
 
+		/// <summary>
+		/// Обработчик ошибки парсинга таблицы
+		/// </summary>
+		/// <param name="error"></param>
 		private void ErrorHandler(ParseErrors error)
 		{
 			tableError = error;
@@ -111,8 +112,8 @@ namespace Dota2
 					MessageBox.Show("В строке таблицы содержится некорректное количество сепараторов ';'.");
 					break;
 				case FileError:
-					MessageBox.Show("Файл с таблицей не найден, поврежден или открыт в другой программе. ");
-					break;
+					MessageBox.Show("Файл с таблицей не найден, поврежден или открыт в другой программе.");
+					break;			
 				case UndefinedError:
 					MessageBox.Show("Произошла ошибка при работе с таблицей.");
 					break;
@@ -130,6 +131,10 @@ namespace Dota2
 			try
 			{
 				ReadXMLFile();
+			}
+			catch (ArgumentException)
+			{
+				MessageBox.Show("В файле содержатся некорректные значения характеристик героя.");
 			}
 			catch (Exception)
 			{
@@ -175,7 +180,18 @@ namespace Dota2
 			characteristics.Add(hero.Element("regeneration").Value);
 			characteristics.Add(hero.Element("health").Value);
 			characteristics.Add(hero.Element("maxHealth").Value);
-			return new Hero(characteristics.ToArray());
+
+			string message = CheckValues(characteristics);
+			if (message != null) throw new ArgumentException();
+			
+			int index = -1;
+			try
+			{
+				index = int.Parse(hero.Element("index").Value);
+			}
+			catch (FormatException){}
+
+			return new Hero(index, characteristics.ToArray());
 		}
 
 		/// <summary>
@@ -191,14 +207,8 @@ namespace Dota2
 				{
 					path = File.ReadAllText(TableSavedPath);
 				}
-				catch (IOException)
-				{
-
-				}
-				catch (Exception)
-				{
-
-				}
+				catch (IOException){}
+				catch (Exception){}
 			}
 			return path;
 		}
@@ -213,17 +223,13 @@ namespace Dota2
 			{
 				File.WriteAllText(TableSavedPath, path);
 			}
-			catch (IOException)
-			{
-
-			}
-			catch (Exception)
-			{
-
-			}
+			catch (IOException){}
+			catch (Exception){}
 		}
 
-
+		/// <summary>
+		/// Загружает обои и музыку в меню
+		/// </summary>
 		private void LoadDisign()
 		{
 			try
@@ -236,9 +242,40 @@ namespace Dota2
 			try
 			{
 				SoundPlayer soundPlayer = new SoundPlayer("../../Resources/AgeOfWarSound.wav");
+				
 				soundPlayer.Play();
+				
 			}
 			catch (Exception) { }
 		}
+
+		/// <summary>
+		/// Проверяет значения характеристик героя из XML файла
+		/// </summary>
+		/// <param name="characteristics"></param>
+		/// <returns></returns>
+		private string CheckValues(List<string> characteristics)
+		{
+			string message = null;
+			for (int i = 0; i < characteristics.Count - 2; i++)
+			{
+				message = DotaValidator.Validate(characteristics[i], i);
+				if (message != null) return message;
+			}
+
+			try
+			{
+				double.Parse(characteristics[characteristics.Count - 2]);
+				double.Parse(characteristics[characteristics.Count - 1]);
+			}
+			catch (Exception)
+			{
+				message = "Здоровье не корректно.";
+			}
+
+			return message;
+		}
+
+		
 	}
 }

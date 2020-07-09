@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DotaLibrary
 {
+	/// <summary>
+	/// Характеристики героя в правильном порядке
+	/// </summary>
 	public enum Characteristics : int
 	{
 		HeroName,

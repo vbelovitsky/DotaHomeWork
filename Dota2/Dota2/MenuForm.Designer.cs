@@ -36,9 +36,9 @@
 			// 
 			// continueGameButton
 			// 
-			this.continueGameButton.Location = new System.Drawing.Point(12, 226);
+			this.continueGameButton.Location = new System.Drawing.Point(12, 317);
 			this.continueGameButton.Name = "continueGameButton";
-			this.continueGameButton.Size = new System.Drawing.Size(229, 65);
+			this.continueGameButton.Size = new System.Drawing.Size(184, 65);
 			this.continueGameButton.TabIndex = 1;
 			this.continueGameButton.Text = "Продолжить";
 			this.continueGameButton.UseVisualStyleBackColor = true;
@@ -46,9 +46,9 @@
 			// 
 			// newGameButton
 			// 
-			this.newGameButton.Location = new System.Drawing.Point(12, 102);
+			this.newGameButton.Location = new System.Drawing.Point(682, 317);
 			this.newGameButton.Name = "newGameButton";
-			this.newGameButton.Size = new System.Drawing.Size(229, 65);
+			this.newGameButton.Size = new System.Drawing.Size(184, 65);
 			this.newGameButton.TabIndex = 2;
 			this.newGameButton.Text = "Новая игра";
 			this.newGameButton.UseVisualStyleBackColor = true;

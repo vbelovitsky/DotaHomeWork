@@ -43,7 +43,9 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.startGameButton = new System.Windows.Forms.Button();
 			this.selectedHeroTextBox = new System.Windows.Forms.TextBox();
+			this.tableBackgroundBox = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.dotaGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tableBackgroundBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dotaGridView
@@ -110,7 +112,7 @@
 			// typeText
 			// 
 			this.typeText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.typeText.Location = new System.Drawing.Point(12, 88);
+			this.typeText.Location = new System.Drawing.Point(23, 88);
 			this.typeText.Name = "typeText";
 			this.typeText.ReadOnly = true;
 			this.typeText.Size = new System.Drawing.Size(75, 19);
@@ -151,7 +153,7 @@
 			// 
 			this.typeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.typeComboBox.FormattingEnabled = true;
-			this.typeComboBox.Location = new System.Drawing.Point(93, 85);
+			this.typeComboBox.Location = new System.Drawing.Point(104, 85);
 			this.typeComboBox.Name = "typeComboBox";
 			this.typeComboBox.Size = new System.Drawing.Size(106, 28);
 			this.typeComboBox.TabIndex = 11;
@@ -198,6 +200,14 @@
 			this.selectedHeroTextBox.TabIndex = 15;
 			this.selectedHeroTextBox.Text = "Герой не выбран";
 			// 
+			// tableBackgroundBox
+			// 
+			this.tableBackgroundBox.Location = new System.Drawing.Point(-9, -10);
+			this.tableBackgroundBox.Name = "tableBackgroundBox";
+			this.tableBackgroundBox.Size = new System.Drawing.Size(1250, 710);
+			this.tableBackgroundBox.TabIndex = 17;
+			this.tableBackgroundBox.TabStop = false;
+			// 
 			// TableForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -218,14 +228,16 @@
 			this.Controls.Add(this.minSpeedEditText);
 			this.Controls.Add(this.saveTableButton);
 			this.Controls.Add(this.dotaGridView);
+			this.Controls.Add(this.tableBackgroundBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "TableForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "DotaTable";
+			this.Text = "Таблица героев";
 			this.Load += new System.EventHandler(this.TableForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dotaGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tableBackgroundBox)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -248,6 +260,7 @@
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button startGameButton;
 		private System.Windows.Forms.TextBox selectedHeroTextBox;
+		private System.Windows.Forms.PictureBox tableBackgroundBox;
 	}
 }
 

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DotaLibrary
 {
-	public enum ParseErrors : int
+	/// <summary>
+	/// Ошибки парсинга CSV файла
+	/// </summary>
+	public enum ParseErrors
 	{
 		ValueError,
 		SeparationError,

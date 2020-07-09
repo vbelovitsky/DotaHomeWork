@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotaLibrary
 {
-    public class Hero
-    {
+	public class Hero
+	{
 		// Базовые характеристики героя, нельзя менять
 		public string Name { get; private set; }
 		public int Type { get; private set; }
@@ -18,6 +14,11 @@ namespace DotaLibrary
 		public double BaseArmor { get; private set; }
 		public int MinDamage { get; private set; }
 		public double Regeneration { get; private set; }
+
+		/// <summary>
+		/// Индекс героя в таблице (для аватарок)
+		/// </summary>
+		public int Index { get; private set; }
 
 		// Здоровье персонажа, меняется в течение игры
 		double health;
@@ -61,7 +62,7 @@ namespace DotaLibrary
 				else
 				{
 					maxHealth = value;
-					if(health > maxHealth)
+					if (health > maxHealth)
 					{
 						health = maxHealth;
 					}
@@ -73,48 +74,45 @@ namespace DotaLibrary
 		// Строковый массив характеристик героя
 		public string[] characteristics;
 
-		public Hero(params string[] characteristics)
+
+		/// <summary>
+		/// Конструктор
+		/// </summary>
+		/// <param name="index"></param>
+		/// <param name="characteristics">Массив характеристик. Значения должны быть валидными, в соответствии с классом ValueBounds</param>
+		public Hero(int index, params string[] characteristics)
 		{
+			Index = index;
 			this.characteristics = characteristics;
 			SetValues();
+
 			// Если герой создается для продолжения игры
 			try
 			{
-				MaxHealth = double.Parse(characteristics[9]);
-				Health = double.Parse(characteristics[10]);
+				MaxHealth = double.Parse(characteristics[10]);
+				Health = double.Parse(characteristics[9]);
 			}
-			catch (Exception)
-			{
-
-			}
+			catch (Exception){}
 		}
 
+		/// <summary>
+		/// Устанавливает переданные значения. Кидает исключения, если значения не верные
+		/// </summary>
 		private void SetValues()
 		{
-			try
-			{
-				Name = characteristics[0];
-				Type = int.Parse(characteristics[1]);
-				BaseStrength = int.Parse(characteristics[2]);
-				BaseAgility = int.Parse(characteristics[3]);
-				BaseIntelligence = int.Parse(characteristics[4]);
-				MoveSpeed = int.Parse(characteristics[5]);
-				BaseArmor = double.Parse(characteristics[6]);
-				MinDamage = int.Parse(characteristics[7]);
-				Regeneration = double.Parse(characteristics[8]);
+			Name = characteristics[0];
+			Type = int.Parse(characteristics[1]);
+			BaseStrength = int.Parse(characteristics[2]);
+			BaseAgility = int.Parse(characteristics[3]);
+			BaseIntelligence = int.Parse(characteristics[4]);
+			MoveSpeed = int.Parse(characteristics[5]);
+			BaseArmor = double.Parse(characteristics[6]);
+			MinDamage = int.Parse(characteristics[7]);
+			Regeneration = double.Parse(characteristics[8]);
 
-				MaxHealth = healthCoefficient * BaseStrength;
-				Health = healthCoefficient * BaseStrength;
-			}
-			catch (FormatException)
-			{
-				Console.WriteLine("Герой не создан");
-			}
-			catch (Exception)
-			{
-				Console.WriteLine("Ошибка при создании героя");
-			}
+			MaxHealth = healthCoefficient * BaseStrength;
+			Health = healthCoefficient * BaseStrength;
 		}
 
-    }
+	}
 }

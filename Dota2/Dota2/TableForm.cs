@@ -13,6 +13,9 @@ using static DotaLibrary.ValueBounds;
 
 namespace Dota2
 {
+	/// <summary>
+	/// Форма с таблицей
+	/// </summary>
 	public partial class TableForm : Form
 	{
 		
@@ -33,6 +36,12 @@ namespace Dota2
 
 		private void TableForm_Load(object sender, EventArgs e)
 		{
+			try
+			{
+				tableBackgroundBox.Image = Properties.Resources.TableWallpaper;
+				tableBackgroundBox.SizeMode = PictureBoxSizeMode.Zoom;
+			}
+			catch (Exception) { }
 			FillGrid(characteristics);
 			FillFilterValues();
 		}
@@ -132,7 +141,7 @@ namespace Dota2
 		/// <param name="e"></param>
 		private void dotaGridView_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if(e.ColumnIndex == 0)
+			if(e.ColumnIndex == 0 && e.RowIndex != -1)
 			{
 				UpdateSelectedHero(e.RowIndex);
 			}
@@ -149,6 +158,8 @@ namespace Dota2
 			selectedHeroIndex = rowIndex;
 		}
 
+
+		// Обработчики покидания редактирования ячеек фильтра
 
 		private void minSpeedEditText_Leave(object sender, EventArgs e)
 		{
@@ -221,7 +232,6 @@ namespace Dota2
 		/// <param name="e"></param>
 		private void resetFilterButton_Click(object sender, EventArgs e)
 		{
-
 			FillFilterValues();
 			table.DefaultView.RowFilter = string.Empty;
 		}
@@ -265,9 +275,11 @@ namespace Dota2
 				heroCharacteristics.Add(table.Rows[index].ItemArray[i].ToString());
 			}
 
-			Hero hero = new Hero(heroCharacteristics.ToArray());
+			Hero hero = new Hero(index, heroCharacteristics.ToArray());
 			return hero;
 		}
+
+		
 	}
 
 	

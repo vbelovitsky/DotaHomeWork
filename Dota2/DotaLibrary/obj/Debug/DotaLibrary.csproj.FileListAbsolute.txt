@@ -1,6 +1,0 @@
-C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\DotaLibrary\bin\Debug\DotaLibrary.dll
-C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\DotaLibrary\bin\Debug\DotaLibrary.pdb
-C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\DotaLibrary\obj\Debug\DotaLibrary.csprojAssemblyReference.cache
-C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\DotaLibrary\obj\Debug\DotaLibrary.csproj.CoreCompileInputs.cache
-C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\DotaLibrary\obj\Debug\DotaLibrary.dll
-C:\Users\User\A\Education\_FCS\Программирование\КДЗ\Dota2\DotaLibrary\obj\Debug\DotaLibrary.pdb
